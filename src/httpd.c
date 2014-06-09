@@ -15,7 +15,7 @@
 
 extern char **environ;
 
-void errexit(const char *, ...);
+int errexit(char *format, ...);
 
 int cgi_handler(char *req)
 {
