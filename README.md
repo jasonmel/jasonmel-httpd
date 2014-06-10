@@ -1,7 +1,7 @@
 jasonmel-httpd
 ==============
 
-A tiny HTTP server
+A tiny HTTP server.
 
 ## Environment
 This project is developed on/for BSD.
