@@ -23,7 +23,7 @@ u_short portbase = 0; /* port base, for non-root servers */
  *------------------------------------------------------------------------
  */
 int
-passivesock( service, protocol, qlen )
+passivesock(service, protocol, qlen)
 char *service; /* service associated with the desired port */
 char *protocol; /* name of protocol to use ("tcp" or "udp") */
 int qlen; /* maximum length of the server request queue */

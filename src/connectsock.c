@@ -27,7 +27,7 @@ u_long inet_addr();
  *------------------------------------------------------------------------
  */
 int
-connectsock( host, service, protocol )
+connectsock(host, service, protocol)
 char *host; /* name of host to which connection is desired */
 char *service; /* service associated with the desired port */
 char *protocol; /* name of protocol to use ("tcp" or "udp") */

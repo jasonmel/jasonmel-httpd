@@ -17,8 +17,7 @@ extern char **environ;
 
 int errexit(char *format, ...);
 
-int cgi_handler(char *req)
-{
+int cgi_handler(char *req) {
   char reqFile[MAX_NUM];
   char qryStr[MAX_NUM];
   char tmp[MAX_NUM];
@@ -50,8 +49,7 @@ int cgi_handler(char *req)
   return 0;
 }
 
-int start(void)
-{
+int start(void) {
   char  ch;
   char  req[MAX_NUM] = "";
   char  reqFile[MAX_NUM] = "";
@@ -98,8 +96,21 @@ int main(int argc, char **argv) {
   int cpid;
   int serv_sock, cli_sock, cli_len;
   struct sockaddr_in cli_addr;
+  char port[6] = "8080";
 
-  serv_sock = passivesock("8080", "tcp", 30);
+  // parse parameters
+  if (argc > 2) {
+      printf("Usage: ./httpd [port (optional, default 8080)]\n");
+      exit(1);
+  } else if (argc == 2) {
+    if (atoi(argv[1]) > 65535) {
+      printf("Port should be an integer less than 65536.\n");
+      exit(1);
+    }
+    strcpy(port, argv[1]);
+  }
+
+  serv_sock = passivesock(port, "tcp", 30);
 
   while (1) {
     cli_len = sizeof(cli_addr);
